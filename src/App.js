@@ -8,7 +8,7 @@ import { ProductProvider } from './contexts/ProductContext';
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename='/preEntrega2KatiaVelasquez'>
         <ProductProvider>
           <NavBar />
             <Routes>
