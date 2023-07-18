@@ -1,0 +1,20 @@
+.navbar-custom {
+    background-color: #fdd8e4;
+  }
+
+  .brand-color {
+    color: #368dc8!important;
+  }
+
+  .links-color {
+    color: #477b9d!important;
+  }
+
+  .links-color #navbar-dropdown {
+    color: #477b9d!important;
+  }
+
+  .button-color {
+    color:#f7d4e6!important;
+    background-color: #826db3!important;
+  }
