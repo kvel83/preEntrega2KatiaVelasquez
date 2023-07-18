@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/preEntrega2KatiaVelasquez/static/css/main.5d3769cf.css",
-    "main.js": "/preEntrega2KatiaVelasquez/static/js/main.a672fa4a.js",
+    "main.js": "/preEntrega2KatiaVelasquez/static/js/main.dd1af565.js",
     "static/js/787.af78befd.chunk.js": "/preEntrega2KatiaVelasquez/static/js/787.af78befd.chunk.js",
     "index.html": "/preEntrega2KatiaVelasquez/index.html",
     "main.5d3769cf.css.map": "/preEntrega2KatiaVelasquez/static/css/main.5d3769cf.css.map",
-    "main.a672fa4a.js.map": "/preEntrega2KatiaVelasquez/static/js/main.a672fa4a.js.map",
+    "main.dd1af565.js.map": "/preEntrega2KatiaVelasquez/static/js/main.dd1af565.js.map",
     "787.af78befd.chunk.js.map": "/preEntrega2KatiaVelasquez/static/js/787.af78befd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5d3769cf.css",
-    "static/js/main.a672fa4a.js"
+    "static/js/main.dd1af565.js"
   ]
 }
