@@ -31,7 +31,7 @@ import { ProductContext } from "../../contexts/ProductContext";
         }
       };
       fetchData();
-    }, [categoryId, getProductsByCategory]);
+    }, [categoryId, getProductsByCategory, products]);
 
 
 
