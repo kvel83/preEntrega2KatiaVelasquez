@@ -33,6 +33,10 @@ import { ProductContext } from "../../contexts/ProductContext";
       fetchData();
     }, [categoryId, getProductsByCategory, products]);
 
+    useEffect(() => {
+      setCurrentPage(1);
+    }, [categoryId]);
+
 
 
     const handlePageChange = (page) => {
