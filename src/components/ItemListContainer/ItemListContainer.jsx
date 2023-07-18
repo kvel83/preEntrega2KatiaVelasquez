@@ -8,7 +8,7 @@
 import { ProductContext } from "../../contexts/ProductContext";
 
   const ItemListContainer = ({ props }) => {
-    const {products, getProductsByCategory} = useContext(ProductContext);
+    const {products, getProductsByCategory, filteredProductsContext} = useContext(ProductContext);
     const [productsFilter, setProductsFilter] = useState([])
     const [loader, setLoader] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
@@ -23,7 +23,7 @@ import { ProductContext } from "../../contexts/ProductContext";
             const filteredProducts = await getProductsByCategory(categoryId);
             setProductsFilter(filteredProducts);
           } else {
-            setProductsFilter(products);
+            setProductsFilter(filteredProductsContext);
           }
           setLoader(false);
         } catch (error) {
@@ -31,7 +31,7 @@ import { ProductContext } from "../../contexts/ProductContext";
         }
       };
       fetchData();
-    }, [categoryId, getProductsByCategory, products]);
+    }, [categoryId, getProductsByCategory, filteredProductsContext]);
 
     useEffect(() => {
       setCurrentPage(1);

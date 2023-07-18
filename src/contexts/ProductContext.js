@@ -4,6 +4,7 @@ export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [filteredProductsContext, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -24,11 +25,12 @@ export const ProductProvider = ({ children }) => {
   };
 
   const getProductsByCategory = (category) => {
-    return products.filter((product) => product.cat === category);
+    let filterProducts = products.filter((product) => product.cat === category);
+    filteredProductsContext(filteredProductsContext);
   };
 
   return (
-    <ProductContext.Provider value={{ products, getProductById, getProductsByCategory }}>
+    <ProductContext.Provider value={{ products, getProductById, getProductsByCategory, filteredProductsContext }}>
       {children}
     </ProductContext.Provider>
   );
