@@ -54,7 +54,7 @@
     );
 
     return (
-      <Container fluid className="main">
+      <Container fluid className="main vh-100">
         {
           loader?(
             <Row className="justify-content-center">

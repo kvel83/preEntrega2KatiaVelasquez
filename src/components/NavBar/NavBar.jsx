@@ -38,7 +38,7 @@ const NavBar = ({setProductSearched}) => {
           </Nav>
           <Form className="d-flex gap-2" role="search">
             <FormControl className="me-2" type="search" name="search" placeholder="Buscar producto" aria-label="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-            <Button variant="outline-success" type="button" onClick={handleSearch} className="button-color">Search</Button>
+            <Button variant="outline-success" type="button" onClick={handleSearch} className="button-color">Buscar</Button>
             <CartWidget />
           </Form>
         </Navbar.Collapse>
