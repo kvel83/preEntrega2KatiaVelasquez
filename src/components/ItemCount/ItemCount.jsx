@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import './ItemCount.css';
 
 const ItemCount = ({ initial, stock, onAdd }) => {
   const [numberOfProducts, setNumberOfProducts] = useState(initial);
@@ -41,7 +42,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
             +
           </Button>
         </div>
-        <Button variant="success" className="mt-2 mb-2" onClick={() => onAdd(numberOfProducts)} disabled={!stock}>
+        <Button variant="success" className="mt-2 mb-2 buttonStyle" onClick={() => onAdd(numberOfProducts)} disabled={!stock}>
           Agregar al carrito
         </Button>
       </div>

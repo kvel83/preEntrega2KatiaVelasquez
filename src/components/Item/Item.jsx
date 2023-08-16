@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import './item.css';
 
 const Item = ({props}) => {
     return (
@@ -11,8 +12,7 @@ const Item = ({props}) => {
                 <p>Stock: {props.stock}</p>
                 <p>Precio: ${props.value}</p>
             </Card.Text>
-            {/* <Button className="mt-auto backgroundButton">Ver Detalle</Button> */}
-            <Link to={`/item/${props.id}`}>Ver Detalle</Link>
+            <Link to={`/item/${props.id}`} className="text-decoration-none linkStyle pt-1 pb-1 text-center rounded">Ver Detalle</Link>
           </Card.Body>
         </Card>
       );

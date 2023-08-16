@@ -5,7 +5,7 @@ export const getProducts = async() => {
       products = await products.json();
       return products;
     } catch (error) {
-        console.log("error al cargar los datos")
+        console.error("error al cargar los datos")
     }
 };
 

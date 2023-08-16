@@ -1,8 +1,22 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { StoreContext } from '../../contexts/StoreContext';
 import Button from 'react-bootstrap/Button';
 import { Card } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
+import { useContext } from 'react';
+import './ItemDetail.css';
 
 const ItemDetail = ({id, name, img, value, desc, cat, stock}) => {
+  const [productsAdded, setProductsAdded] = useState(0);
+  const { addItemToCart } = useContext(StoreContext);
+
+  const handleAddProduct = ( quantity ) => {
+    setProductsAdded(quantity);
+    const item={ id, name, value };
+    addItemToCart(item, quantity);
+  }
+
   return(
     <div className='d-flex aling-items-center'>
       <Card style={{ width: '21rem'}}>
@@ -13,7 +27,17 @@ const ItemDetail = ({id, name, img, value, desc, cat, stock}) => {
               <p>{desc}</p>
               <p>Precio: ${value}</p>
           </Card.Text>
-          < ItemCount initial={1} stock={stock} onAdd={(productCount) => console.log('Cantidad agregada',)}/>
+          {
+            productsAdded > 0?(
+              <div className='text-center'>
+                <Button variant="success" className="mt-2 mb-2  w-50 linkStyle"><Link to='/cart' className='text-white text-decoration-none linkStyle'>Terminar compra</Link></Button>
+              </div>
+            ):(
+              < ItemCount initial={1} stock={stock} onAdd={handleAddProduct}/>
+            )
+          }
+
+
         </Card.Body>
       </Card>
     </div>

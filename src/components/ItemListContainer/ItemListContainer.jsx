@@ -5,21 +5,24 @@
   import ItemList from '../ItemList/ItemList';
   import Paginator from '../Paginator/Paginator'
   import { useParams } from "react-router-dom";
-import { ProductContext } from "../../contexts/ProductContext";
+  import { StoreContext } from "../../contexts/StoreContext";
 
-  const ItemListContainer = ({ props }) => {
-    const {products, getProductsByCategory} = useContext(ProductContext);
+  const ItemListContainer = ({ props, productSearched }) => {
+    const {products, getProductsByCategory} = useContext(StoreContext);
     const [productsFilter, setProductsFilter] = useState([])
     const [loader, setLoader] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
 
     const {categoryId} = useParams();
-
+    console.log(productSearched);
     useEffect(() => {
       const fetchData = async () => {
         try {
-          if (categoryId) {
+          if (productSearched){
+            const filteredProducts = products.filter(product => product.name.includes(productSearched) || product.desc.includes(productSearched))
+            setProductsFilter(filteredProducts);
+          }else if (categoryId) {
             const filteredProducts = await getProductsByCategory(categoryId);
             setProductsFilter(filteredProducts);
           } else {
@@ -27,7 +30,7 @@ import { ProductContext } from "../../contexts/ProductContext";
           }
           setLoader(false);
         } catch (error) {
-          console.log("Error fetching data", error);
+          console.error("Error fetching data", error);
         }
       };
       fetchData();

@@ -2,13 +2,13 @@ import { useEffect, useState, useContext } from "react";
 import { Container } from "react-bootstrap";
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from "react-router-dom";
-import { ProductContext } from "../../contexts/ProductContext";
+import { StoreContext } from "../../contexts/StoreContext";
 import './itemDetailContainer.css';
 
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null);
-    const { getProductById } = useContext(ProductContext);
+    const { getProductById } = useContext(StoreContext);
     const { itemId } = useParams();
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
                     console.log("El producto no existe");
                 }
             } catch (error) {
-                console.log("Error fetching data", error);
+                console.error("Error fetching data", error);
             }
         };
         fetchData();
